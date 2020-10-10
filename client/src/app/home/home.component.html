@@ -1,0 +1,36 @@
+
+<div  class="sidenav" >
+    <div *ngFor="let i of items">    
+        <a type="button" class="btn btn-secondary dropdown-toggle" id="drop" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">{{i.itemname}}({{i.entirestock}})</a>
+        <div class="dropdown-menu" aria-labelledby="drop">
+            <div *ngFor="let j of i.types">
+                <a href="#{{i.itemname}}">{{j.brand}}({{j.stock}})</a>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<div style="margin-top: 50px;" class="main" *ngFor="let i of items">
+<div fxFlex fxLayout="row" fxLayoutGap="10px" >
+        <div  id="{{i.itemname}}" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around">
+            <div *ngFor="let j of i.types">
+            <mat-card style="border:1px solid black;height:200px;width:250px;margin:10px;background-color: #e0e0e0 ;">
+                <mat-card-header><mat-card-title><h3>{{i.itemname | uppercase}}</h3></mat-card-title></mat-card-header>        
+                <mat-card-content>
+                    
+                        <h4 style="color:#4285F4">{{j.brand}}</h4>
+                        <i><h5 matLine>Price : {{j.price}}</h5></i>
+                   
+                </mat-card-content>
+                <mat-card-actions>
+                    <button  mat-button class="btn btn-warning" (click)="onSelect(i.itemname,j.brand,j.stock,j.price)" >select</button>
+                </mat-card-actions>
+                
+            </mat-card>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- <app-modal [items]="item"></app-modal> -->

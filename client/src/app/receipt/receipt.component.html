@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    
+</head>
+<style>
+   
+</style>
+<body style="margin-top: 50px;">    
+    <div id="win" style="display: flex;justify-content:flex-start ;">
+    <div class="panel"  style="border: 1px solid  black;min-height: 700px;width:470px;border-radius: 10px;">
+        <div style="display: flex;justify-content: space-between;padding:5px">
+            <div></div><div></div>
+            <div style="border: 0.3px solid gray;border-radius: 10px;width: 100px;height:20px;text-align: center;"><b>CASH BILL</b></div>
+            <div class="cell">Cell: 7306225565</div>
+        </div>
+        <div>
+            <div align="center" style="font-size: 50px;"><b>KOMALA</b></div>
+            <div align="center" style="font-size: 20px;color: #212F3D;"><u><b>Digital Printing Solutions</b></u></div>
+            <div align="center" style="font-size: 16px;">Kaman to Bharath Talkies Road, KARIMNAGAR - 505 001.</div>
+        </div>
+        <div style="display: flex;justify-content: space-between;padding:5px ;margin-top: 8px;">
+            <div><b>M/s</b>&nbsp;<u>{{customer.name}}</u></div>
+            <div><b>Date:</b>&nbsp;<u>{{customer.date}}</u></div>
+        </div>
+        <hr color="black">
+        <div>
+            <table align="center" style="border: 1px solid black;border-collapse: collapse;">
+                <tr>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 5px;">S.No.</th>
+                    <th style="padding-right: 10px;border: 1px solid black;padding: 10px;">Particulars</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;border-collapse: collapse;">Brand</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">Qty.</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">Price</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">Amount</th>
+                </tr>
+                <tr *ngFor="let i of details">
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 5px;">{{i.sno}}</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">{{i.item}}</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">{{i.brand}}</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">{{i.quantity}}</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">{{i.price}}</th>
+                    <th style="padding-right: 6px;border: 1px solid black;padding: 10px;">{{i.amount}}</th>
+                </tr>
+                
+            </table>
+        </div>
+        <div align="end" style="margin-right: 50px;">GST: &nbsp;{{gst}}</div>
+        <div style="display: flex;justify-content:space-between;padding-right: 30px;padding-top: 5px;margin-top: 10px;padding-left:10px;position: absolute;bottom: 50;">
+            <div>Signature:&nbsp;&nbsp;_____________</div>
+            <div style="margin-left: 40px;"><b>Total(Including GST):&nbsp;&nbsp;</b>{{total}}</div>
+        </div>
+    </div>
+</div>
+<div style="align-content: center;margin-top: 20px;">
+    <button mat-button class="btn btn-warning" style="margin-left: 100px;" routerLink="/home">Cancel</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button mat-button (click)="onSubmit()" class="btn btn-primary">print</button>
+</div>
+
+</body>
+</html>
+

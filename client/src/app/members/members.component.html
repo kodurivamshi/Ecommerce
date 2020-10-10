@@ -1,0 +1,21 @@
+<div style="margin-top: 50px;"><h3 >Paid Bills</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">S NO.</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Amount</th> 
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of member" routerLink="/receipt" (click)="setMember(m.id)">
+          <td>{{m.sno}}</td>  
+          <td >{{m.name}}</td>
+            <td >{{m.amount}}</td>
+            <td>{{m.date}}</td>
+            <!-- {{increment()}} -->
+        </tr>
+    </tbody>
+  </table>
+</div>

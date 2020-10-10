@@ -1,0 +1,28 @@
+<div class="main" style="margin-top: 50px;">
+<mat-toolbar style="background-color:#33b5e5;color: white;">
+    <b>Selected Items</b>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close >&times;</button>
+</mat-toolbar>
+<mat-dialog-content style="margin-top: 5px;background-color: #e1f5fe ;">
+    <div>
+        <input matInput type="text" placeholder="Customer Name" name="name" [(ngModel)]="name" required>
+    </div>
+    <div *ngFor="let i of items" style="margin-top: 10px;">
+        <div style="color:#0099CC"><b>{{i.itemname}}</b></div>
+        <div *ngFor="let j of i.types" class="row">
+            <div class="col-5"><p><b>{{j.brand}}</b> &nbsp;&nbsp;&nbsp;price: {{j.price}}</p></div>
+            <div class="col-6">quantity: <input matInput type="number" name="quantity" min="0" max="{{j.stock}}" (change)="totalprice()" [(ngModel)]="j.quantity">&nbsp;&nbsp;&nbsp;<button mat-Button (click)="onRemove(i.itemname,j.brand)">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total price: <b>{{j.quantity*j.price}}</b></div>
+        </div>
+    </div>
+    <div>
+    <span class="flex-spacer"></span>
+    <p matLine >Total: &nbsp;<b>{{total}}</b></p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button class="btn btn-warning" mat-dialog-close>Cancel</button>
+    <button mat-button (click)="onSubmit()" style="background-color:#42a5f5;" routerLink="/bill" class="background-primary text-floral-white">Generate Bill</button>
+  </mat-dialog-actions>
+</div>
